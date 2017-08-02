@@ -11,28 +11,28 @@ let calculatorRows = `
     <div id='seven-button' class='button'>7</div>
     <div id='eight-button' class='button'>8</div>
     <div id='nine-button' class='button'>9</div>
-    <div id='divide-button' class='button'>/</div>
+    <div id='divide-button' class='button operator'>/</div>
   </div>
 
   <div class='row'>
     <div id='four-button' class='button'>4</div>
     <div id='five-button' class='button'>5</div>
     <div id='six-button' class='button'>6</div>
-    <div id='multiply-button' class='button'>*</div>
+    <div id='multiply-button' class='button operator'>*</div>
   </div>
 
   <div class='row'>
     <div id='one-button' class='button'>1</div>
     <div id='two-button' class='button'>2</div>
     <div id='three-button' class='button'>3</div>
-    <div id='subtract-button' class='button'>-</div>
+    <div id='subtract-button' class='button operator'>-</div>
   </div>
 
   <div class='row'>
     <div id='zero-button' class='button'>0</div>
     <div id='decimal-button' class='button'>.</div>
     <div id='equals-button' class='button'>=</div>
-    <div id='add-button' class='button'>+</div>
+    <div id='add-button' class='button operator'>+</div>
   </div>
 `
 

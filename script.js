@@ -4,7 +4,7 @@ let calculatorDiv = document.getElementById('calculator');
 let calculatorRows = `
   <div class='row'>
     <div id='clear-button' class='button'>C</div>
-    <div class='display'>DISPLAY</div>
+    <div class='display'>{{display}}</div>
   </div>
 
   <div class='row'>
@@ -38,81 +38,131 @@ let calculatorRows = `
 
 calculatorDiv.innerHTML = calculatorRows;
 
-//
-// // build up the first row
-// let firstRow = document.createElement('div');
-// let clearButton = document.createElement('div');
-// clearButton.id = 'clear';
-// let clearButtonText = document.createTextNode('C');
-// clearButton.appendChild(clearButtonText);
-// let display = document.createElement('div');
-// display.id = 'display';
-// firstRow.appendChild(clearButton);
-// firstRow.appendChile(display);
-//
-// // build up the second row
-// let secondRow = document.createElement('div');
-// let sevenButton = document.createElement('div');
-// sevenButton.id = '7';
-// let eightButton = document.createElement('div');
-// eightButton.id = '8';
-// let nineButton = document.createElement('div');
-// nineButton.id = '9';
-// let divideButton = document.createElement('div');
-// divideButton.id = '/';
-// secondRow.appendChild(sevenButton);
-// secondRow.appendChild(eightButton);
-// secondRow.appendChild(nineButton);
-// secondRow.appendChild(divideButton);
-//
-// // build up the third row
-// let thirdRow = document.createElement('div');
-// let fourButton = document.createElement('div');
-// fourButton.id = '4';
-// let fiveButton = document.createElement('div');
-// fiveButton.id = '5';
-// let sixButton = document.createElement('div');
-// sixButton.id = '6';
-// let multiplyButton = document.createElement('div');
-// multiplyButton.id = '*';
-// thirdRow.appendChild(fourButton);
-// thirdRow.appendChild(fiveButton);
-// thirdRow.appendChild(sixButton);
-// thirdRow.appendChild(multiplyButton);
-//
-// // build up the fourth row
-// let fourthRow = document.createElement('div');
-// let oneButton = document.createElement('div');
-// oneButton.id = '1';
-// let twoButton = document.createElement('div');
-// twoButton.id = '2';
-// let threeButton = document.createElement('div');
-// threeButton.id = '3';
-// let subtractButton = document.createElement('div');
-// subtractButton.id = '-';
-// fourthRow.appendChild(oneButton);
-// fourthRow.appendChild(twoButton);
-// fourthRow.appendChild(threeButton);
-// fourthRow.appendChild(subtractButton);
-//
-// // build up the fifth row
-// let fifthRow = document.createElement('div');
-// let zeroButton = document.createElement('div');
-// zeroButton.id = '0';
-// let decimalButton = document.createElement('div');
-// decimalButton.id = '.';
-// let equalsButton = document.createElement('div');
-// equalsButton.id = '=';
-// let addButton = document.createElement('div');
-// addButton.id = '+';
-// fifthRow.appendChild(zeroButton);
-// fifthRow.appendChild(decimalButton);
-// fifthRow.appendChild(equalsButton);
-// fifthRow.appendChild(addButton);
-//
-// // append the rows to the calculator
-// calculatorDiv.appendChild(firstRow);
-// calculatorDiv.appendChild(secondRow);
-// calculatorDiv.appendChild(thirdRow);
-// calculatorDiv.appendChild(fourthRow);
-// calculatorDiv.appendChild(fifthRow);
+// set up our Vue and link to display
+var app = new Vue({
+  el: '#calculator',
+  data: {
+    display: ''
+  }
+});
+
+
+// add some event handlers to the buttons
+
+// grab all the buttons
+let buttons = document.querySelectorAll('.button');
+
+let calculation = '';
+
+buttons.forEach( (button) => {
+  // grab the id of the button so we know what it is
+  switch(button.id) {
+    case 'clear-button':
+      button.addEventListener('click', () => {
+        console.log('clear clicked');
+        app.display = '';
+      });
+    break;
+    case 'seven-button':
+      button.addEventListener('click', () => {
+        console.log('7 clicked');
+        app.display += '7';
+      });
+    break;
+    case 'eight-button':
+      button.addEventListener('click', () => {
+        console.log('8 clicked');
+        app.display += '8';
+      });
+    break;
+    case 'nine-button':
+      button.addEventListener('click', () => {
+        console.log('9 clicked');
+        app.display += '9';
+      });
+    break;
+    case 'divide-button':
+      button.addEventListener('click', () => {
+        console.log('divide clicked');
+        app.display += '/';
+      });
+    break;
+
+    case 'four-button':
+      button.addEventListener('click', () => {
+        console.log('4 clicked');
+        app.display += '4';
+      });
+    break;
+    case 'five-button':
+      button.addEventListener('click', () => {
+        console.log('5 clicked');
+        app.display += '5';
+      });
+    break;
+    case 'six-button':
+      button.addEventListener('click', () => {
+        console.log('6 clicked');
+        app.display += '6';
+      });
+    break;
+    case 'multiply-button':
+      button.addEventListener('click', () => {
+        console.log('multiply clicked');
+        app.display += '*';
+      });
+    break;
+
+    case 'one-button':
+      button.addEventListener('click', () => {
+        console.log('1 clicked');
+        app.display += '1';
+      });
+    break;
+    case 'two-button':
+      button.addEventListener('click', () => {
+        console.log('2 clicked');
+        app.display += '2';
+      });
+    break;
+    case 'three-button':
+      button.addEventListener('click', () => {
+        console.log('3 clicked');
+        app.display += '3';
+      });
+    break;
+    case 'subtract-button':
+      button.addEventListener('click', () => {
+        console.log('subtract clicked');
+        app.display += '-';
+      });
+    break;
+
+    case 'zero-button':
+      button.addEventListener('click', () => {
+        console.log('0 clicked');
+        app.display += '0';
+      });
+    break;
+    case 'decimal-button':
+      button.addEventListener('click', () => {
+        console.log('decimal clicked');
+        app.display += '.';
+      });
+    break;
+    case 'equals-button':
+      button.addEventListener('click', () => {
+        console.log('equals clicked');
+        app.display = eval(app.display);
+      });
+    break;
+    case 'add-button':
+      button.addEventListener('click', () => {
+        console.log('add clicked');
+        app.display += '+';
+      });
+    break;
+
+
+  }
+});

@@ -1,6 +1,8 @@
 // grab the container for our calculator
 let calculatorDiv = document.getElementById('calculator');
 
+let headingText = `<h1>Basic Calculator</h1>`
+
 let calculatorRows = `
   <div class='row'>
     <div id='clear-button' class='button'>C</div>

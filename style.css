@@ -54,6 +54,10 @@ h1 {
   font-size: 2em;
 }
 
+.button:hover {
+  background-color: rgb(21, 62, 5);
+}
+
 .operator {
   color: rgb(0,0,0);
 }

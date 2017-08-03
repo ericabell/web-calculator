@@ -12,6 +12,10 @@ let calculatorRows = `
   </div>
 
   <div class='row'>
+    <button type="button" id='square-button' class="btn btn-default"> $ x^2 $ </button>
+  </div>
+
+  <div class='row'>
     <button type="button" id='seven-button' class="btn btn-default">7</button>
     <button type="button" id='eight-button' class='btn btn-default'>8</button>
     <button type="button" id='nine-button' class='btn btn-default'>9</button>

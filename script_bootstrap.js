@@ -9,6 +9,7 @@ let calculatorRows = `
     <button type="button" id='enter-button' class="btn btn-default"> ENTER </button>
     <button type="button" id='drop-button' class="btn btn-default"> DROP </button>
     <button type="button" id='swap-button' class="btn btn-default"> SWAP </button>
+    <button type="button" id='clearstack-button' class="btn btn-default"> CLEAR STACK </button>
   </div>
 
   <div class='row'>
@@ -343,6 +344,13 @@ buttons.forEach( (button) => {
         app.stack.unshift(temp2);
       })
     break;
+    case 'clearstack-button':
+      button.addEventListener('click', () => {
+        console.log('clear stack button clicked');
+        // swap contents of [0] and [1]
+        app.stack = [];
+      })
+    break;
     case 'square-button':
       button.addEventListener('click', () => {
         console.log('square button clicked');
@@ -383,6 +391,23 @@ buttons.forEach( (button) => {
           // take the sin of the buffer
           let op1 = app.buffer;
           let result = math.sin(op1);
+          app.buffer = result;
+        }
+      })
+    break;
+    case 'asin-button':
+      button.addEventListener('click', () => {
+        console.log('asin button clicked');
+        let op1, result;
+        // take sin of buffer if there is something there
+        if(app.buffer === '') {
+          // take sin of stack[0]
+          let op1 = app.stack.shift();
+          let result = math.asin(op1);
+        } else {
+          // take the sin of the buffer
+          let op1 = app.buffer;
+          let result = math.asin(op1);
           app.buffer = result;
         }
       })

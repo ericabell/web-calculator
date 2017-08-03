@@ -7,6 +7,8 @@ let calculatorRows = `
   <div class='row'>
     <button type="button" id='clear-button' class="btn btn-default"> C </button>
     <button type="button" id='enter-button' class="btn btn-default"> ENTER </button>
+    <button type="button" id='drop-button' class="btn btn-default"> DROP </button>
+    <button type="button" id='swap-button' class="btn btn-default"> SWAP </button>
   </div>
 
   <div class='row'>
@@ -227,6 +229,23 @@ buttons.forEach( (button) => {
         console.log('enter button clicked');
         // toggle the second function
         app.pushBufferToStack();
+      })
+    break;
+    case 'drop-button':
+      button.addEventListener('click', () => {
+        console.log('drop button clicked');
+        // remove element from stack[0]
+        app.stack.shift();
+      })
+    break;
+    case 'swap-button':
+      button.addEventListener('click', () => {
+        console.log('swap button clicked');
+        // swap contents of [0] and [1]
+        let temp = app.stack.shift();
+        let temp2 = app.stack.shift();
+        app.stack.unshift(temp);
+        app.stack.unshift(temp2);
       })
     break;
     default:

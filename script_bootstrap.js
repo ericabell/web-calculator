@@ -13,6 +13,8 @@ let calculatorRows = `
 
   <div class='row'>
     <button type="button" id='square-button' class="btn btn-default"> $ x^2 $ </button>
+    <button type="button" id='second-button' class="btn btn-default"> 2nd </button>
+
   </div>
 
   <div class='row'>
@@ -40,6 +42,11 @@ let calculatorRows = `
     <button type="button" id='zero-button' class='btn btn-default'>0</button>
     <button type="button" id='decimal-button' class='btn btn-default'>.</button>
     <button type="button" id='add-button' class='btn btn-default'>+</button>
+  </div>
+
+  <div class='row'>
+    <button type="button" id='sin-button' class='btn btn-default primary'>sin</button>
+    <button type="button" id='asin-button' class='btn btn-default secondary' disabled>arcsin</button>
   </div>
 `
 
@@ -70,20 +77,10 @@ var app = new Vue({
   el: '#calculator',
   data: {
     buffer: '',
-    second: false,
+    secondFunction: false,
     stack: []
   },
   methods: {
-    toggleSecond() {
-      if(this.second === true) {
-        this.second = false;
-        this.$refs.second.innerText = '2nd';
-      } else {
-        this.second = true;
-        this.$refs.second.innerText = 'On';
-      }
-    },
-
     pushBufferToStack() {
       console.log(`moving buffer: ${Number(this.buffer)} to stack`);
       this.stack.unshift(Number(this.buffer));
@@ -91,10 +88,42 @@ var app = new Vue({
       console.log(this.stack);
     }
 
+  },
+  watch: {
+    secondFunction: function(val) {
+      console.log('watch secondFunction: ' + val);
+      if( val === true ) {
+        // turn primary buttons off
+        turnPrimaryButtonsOff();
+      } else {
+        // turn primary buttons on
+        turnPrimaryButtonsOn();
+      }
+    }
   }
-
 });
 
+function turnPrimaryButtonsOn() {
+  let primaryButtons = document.querySelectorAll('.primary');
+  let secondaryButtons = document.querySelectorAll('.secondary');
+  primaryButtons.forEach(function(b) {
+    b.removeAttribute('disabled');
+  });
+  secondaryButtons.forEach(function(b) {
+    b.setAttribute('disabled', '');
+  })
+}
+
+function turnPrimaryButtonsOff() {
+  let primaryButtons = document.querySelectorAll('.primary');
+  let secondaryButtons = document.querySelectorAll('.secondary');
+  primaryButtons.forEach(function(b) {
+    b.setAttribute('disabled', '');
+  });
+  secondaryButtons.forEach(function(b) {
+    b.removeAttribute('disabled');
+  })
+}
 
 // add some event handlers to the buttons
 
@@ -327,6 +356,34 @@ buttons.forEach( (button) => {
           op1 = Number(app.buffer);
           app.stack.push(op1*op1);
           app.buffer = '';
+        }
+      })
+    break;
+    case 'second-button':
+      button.addEventListener('click', () => {
+        console.log('second button clicked');
+        // toggle the second-function property
+        if( app.secondFunction === false ) {
+          app.secondFunction = true;
+        } else {
+          app.secondFunction = false;
+        }
+      })
+    break;
+    case 'sin-button':
+      button.addEventListener('click', () => {
+        console.log('sin button clicked');
+        let op1, result;
+        // take sin of buffer if there is something there
+        if(app.buffer === '') {
+          // take sin of stack[0]
+          let op1 = app.stack.shift();
+          let result = math.sin(op1);
+        } else {
+          // take the sin of the buffer
+          let op1 = app.buffer;
+          let result = math.sin(op1);
+          app.buffer = result;
         }
       })
     break;

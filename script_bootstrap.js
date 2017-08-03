@@ -314,10 +314,26 @@ buttons.forEach( (button) => {
         app.stack.unshift(temp2);
       })
     break;
+    case 'square-button':
+      button.addEventListener('click', () => {
+        console.log('square button clicked');
+        let op1;
+        // square contents of [0] if buffer is empty
+        if(app.buffer==='') {
+          op1 = app.stack.shift();
+          app.stack.push(op1*op1);
+        }
+        else {
+          op1 = Number(app.buffer);
+          app.stack.push(op1*op1);
+          app.buffer = '';
+        }
+      })
+    break;
     default:
       button.addEventListener('click', () => {
         console.log('button not assigned a function');
       })
 
-  }
+  } // end switch
 });

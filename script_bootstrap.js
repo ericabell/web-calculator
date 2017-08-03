@@ -193,12 +193,6 @@ buttons.forEach( (button) => {
         app.buffer += '.';
       });
     break;
-    case 'equals-button':
-      button.addEventListener('click', () => {
-        console.log('equals clicked');
-        app.display = eval(app.display);
-      });
-    break;
     case 'add-button':
       button.addEventListener('click', () => {
         console.log('add clicked');

@@ -5,58 +5,70 @@ let headingText = `<h1>Basic Calculator</h1>`
 
 let calculatorRows = `
   <div class='row'>
-    <div id='clear-button' class='button'>C</div>
-    <div class='display'>{{display}}</div>
+    <button type="button" id='clear-button' class="btn btn-default"> C </button>
+    <button type="button" id='enter-button' class="btn btn-default"> ENTER </button>
   </div>
 
   <div class='row'>
-    <div id='seven-button' class='button'>7</div>
-    <div id='eight-button' class='button'>8</div>
-    <div id='nine-button' class='button'>9</div>
-    <div id='divide-button' class='button operator'>/</div>
+    <button type="button" id='seven-button' class="btn btn-default">7</button>
+    <button type="button" id='eight-button' class='btn btn-default'>8</button>
+    <button type="button" id='nine-button' class='btn btn-default'>9</button>
+    <button type="button" id='divide-button' class='btn btn-default'>/</button>
   </div>
 
   <div class='row'>
-    <div id='four-button' class='button'>4</div>
-    <div id='five-button' class='button'>5</div>
-    <div id='six-button' class='button'>6</div>
-    <div id='multiply-button' class='button operator'>*</div>
+    <button type="button" id='four-button' class='btn btn-default'>4</button>
+    <button type="button" id='five-button' class='btn btn-default'>5</button>
+    <button type="button" id='six-button' class='btn btn-default'>6</button>
+    <button type="button" id='multiply-button' class='btn btn-default'>*</button>
   </div>
 
   <div class='row'>
-    <div id='one-button' class='button'>1</div>
-    <div id='two-button' class='button'>2</div>
-    <div id='three-button' class='button'>3</div>
-    <div id='subtract-button' class='button operator'>-</div>
+    <button type="button" id='one-button' class='btn btn-default'>1</button>
+    <button type="button" id='two-button' class='btn btn-default'>2</button>
+    <button type="button" id='three-button' class='btn btn-default'>3</button>
+    <button type="button" id='subtract-button' class='btn btn-default'>-</button>
   </div>
 
   <div class='row'>
-    <div id='zero-button' class='button'>0</div>
-    <div id='decimal-button' class='button'>.</div>
-    <div id='equals-button' class='button'>=</div>
-    <div id='add-button' class='button operator'>+</div>
-  </div>
-
-  <div class='row'>
-    <div id='open-parens-button' class='button'>(</div>
-    <div id='close-parens-button' class='button'>)</div>
-    <div ref='second' id='second-function' class='button'>2nd</div>
-    <div id='dummy' class='button'>?</div>
+    <button type="button" id='zero-button' class='btn btn-default'>0</button>
+    <button type="button" id='decimal-button' class='btn btn-default'>.</button>
+    <button type="button" id='add-button' class='btn btn-default'>+</button>
   </div>
 `
 
-calculatorDiv.innerHTML = calculatorRows;
+let stackDisplay = `
+  <table class="table">
+    <tr>
+      <td id="stack-3">{{stack[3]}}</td>
+    </tr>
+    <tr>
+      <td id="stack-2">{{stack[2]}}</td>
+    </tr>
+    <tr>
+      <td id="stack-1">{{stack[1]}}</td>
+    </tr>
+    <tr>
+      <td id="stack-0">{{stack[0]}}</td>
+    </tr>
+    <tr>
+      <td id="stack-0">{{buffer}}</td>
+    </tr>
+  </table>
+`
+
+calculatorDiv.innerHTML = calculatorRows + stackDisplay;
 
 // set up our Vue and link to display
 var app = new Vue({
   el: '#calculator',
   data: {
-    display: '',
-    second: false
+    buffer: '',
+    second: false,
+    stack: []
   },
   methods: {
     toggleSecond() {
-      console.log(this.$refs);
       if(this.second === true) {
         this.second = false;
         this.$refs.second.innerText = '2nd';
@@ -64,7 +76,15 @@ var app = new Vue({
         this.second = true;
         this.$refs.second.innerText = 'On';
       }
+    },
+
+    pushBufferToStack() {
+      console.log(`moving buffer: ${Number(this.buffer)} to stack`);
+      this.stack.unshift(Number(this.buffer));
+      this.buffer = '';
+      console.log(this.stack);
     }
+
   }
 
 });
@@ -73,9 +93,7 @@ var app = new Vue({
 // add some event handlers to the buttons
 
 // grab all the buttons
-let buttons = document.querySelectorAll('.button');
-
-let calculation = '';
+let buttons = document.querySelectorAll('.btn');
 
 buttons.forEach( (button) => {
   // grab the id of the button so we know what it is
@@ -89,19 +107,19 @@ buttons.forEach( (button) => {
     case 'seven-button':
       button.addEventListener('click', () => {
         console.log('7 clicked');
-        app.display += '7';
+        app.buffer += '7';
       });
     break;
     case 'eight-button':
       button.addEventListener('click', () => {
         console.log('8 clicked');
-        app.display += '8';
+        app.buffer += '8';
       });
     break;
     case 'nine-button':
       button.addEventListener('click', () => {
         console.log('9 clicked');
-        app.display += '9';
+        app.buffer += '9';
       });
     break;
     case 'divide-button':
@@ -114,19 +132,19 @@ buttons.forEach( (button) => {
     case 'four-button':
       button.addEventListener('click', () => {
         console.log('4 clicked');
-        app.display += '4';
+        app.buffer += '4';
       });
     break;
     case 'five-button':
       button.addEventListener('click', () => {
         console.log('5 clicked');
-        app.display += '5';
+        app.buffer += '5';
       });
     break;
     case 'six-button':
       button.addEventListener('click', () => {
         console.log('6 clicked');
-        app.display += '6';
+        app.buffer += '6';
       });
     break;
     case 'multiply-button':
@@ -139,19 +157,19 @@ buttons.forEach( (button) => {
     case 'one-button':
       button.addEventListener('click', () => {
         console.log('1 clicked');
-        app.display += '1';
+        app.buffer += '1';
       });
     break;
     case 'two-button':
       button.addEventListener('click', () => {
         console.log('2 clicked');
-        app.display += '2';
+        app.buffer += '2';
       });
     break;
     case 'three-button':
       button.addEventListener('click', () => {
         console.log('3 clicked');
-        app.display += '3';
+        app.buffer += '3';
       });
     break;
     case 'subtract-button':
@@ -164,13 +182,13 @@ buttons.forEach( (button) => {
     case 'zero-button':
       button.addEventListener('click', () => {
         console.log('0 clicked');
-        app.display += '0';
+        app.buffer += '0';
       });
     break;
     case 'decimal-button':
       button.addEventListener('click', () => {
         console.log('decimal clicked');
-        app.display += '.';
+        app.buffer += '.';
       });
     break;
     case 'equals-button':
@@ -203,6 +221,14 @@ buttons.forEach( (button) => {
         // toggle the second function
         app.toggleSecond();
       })
+    break;
+    case 'enter-button':
+      button.addEventListener('click', () => {
+        console.log('enter button clicked');
+        // toggle the second function
+        app.pushBufferToStack();
+      })
+    break;
     default:
       button.addEventListener('click', () => {
         console.log('button not assigned a function');

@@ -48,6 +48,19 @@ let calculatorRows = `
   <div class='row'>
     <button type="button" id='sin-button' class='btn btn-default primary'>sin</button>
     <button type="button" id='asin-button' class='btn btn-default secondary' disabled>arcsin</button>
+    <button type="button" id='cos-button' class='btn btn-default primary'>cos</button>
+    <button type="button" id='acos-button' class='btn btn-default secondary' disabled>arccos</button>
+    <button type="button" id='tan-button' class='btn btn-default primary'>tan</button>
+    <button type="button" id='atan-button' class='btn btn-default secondary' disabled>arctan</button>
+  </div>
+
+  <div class='row'>
+    <button type="button" id='e-button' class='btn btn-default primary'>$e^x$</button>
+    <button type="button" id='ln-button' class='btn btn-default secondary' disabled>$\ln x$</button>
+  </div>
+
+  <div class='row'>
+    <button type="button" id='pi-button' class='btn btn-default primary'>$\\pi$</button>
   </div>
 `
 
@@ -412,6 +425,115 @@ buttons.forEach( (button) => {
         }
       })
     break;
+    case 'cos-button':
+      button.addEventListener('click', () => {
+        console.log('cos button clicked');
+        let op1, result;
+        // take sin of buffer if there is something there
+        if(app.buffer === '') {
+          // take sin of stack[0]
+          let op1 = app.stack.shift();
+          let result = math.cos(op1);
+        } else {
+          // take the sin of the buffer
+          let op1 = app.buffer;
+          let result = math.cos(op1);
+          app.buffer = result;
+        }
+      })
+    break;
+    case 'acos-button':
+      button.addEventListener('click', () => {
+        console.log('acos button clicked');
+        let op1, result;
+        // take sin of buffer if there is something there
+        if(app.buffer === '') {
+          // take sin of stack[0]
+          let op1 = app.stack.shift();
+          let result = math.acos(op1);
+        } else {
+          // take the sin of the buffer
+          let op1 = app.buffer;
+          let result = math.acos(op1);
+          app.buffer = result;
+        }
+      })
+    break;
+    case 'tan-button':
+      button.addEventListener('click', () => {
+        console.log('tan button clicked');
+        let op1, result;
+        // take sin of buffer if there is something there
+        if(app.buffer === '') {
+          // take sin of stack[0]
+          let op1 = app.stack.shift();
+          let result = math.tan(op1);
+        } else {
+          // take the sin of the buffer
+          let op1 = app.buffer;
+          let result = math.tan(op1);
+          app.buffer = result;
+        }
+      })
+    break;
+    case 'atan-button':
+      button.addEventListener('click', () => {
+        console.log('atan button clicked');
+        let op1, result;
+        // take sin of buffer if there is something there
+        if(app.buffer === '') {
+          // take sin of stack[0]
+          let op1 = app.stack.shift();
+          let result = math.atan(op1);
+        } else {
+          // take the sin of the buffer
+          let op1 = app.buffer;
+          let result = math.atan(op1);
+          app.buffer = result;
+        }
+      })
+    break;
+    case 'e-button':
+      button.addEventListener('click', () => {
+        console.log('e button clicked');
+        let op1, result;
+        // take sin of buffer if there is something there
+        if(app.buffer === '') {
+          // take sin of stack[0]
+          let op1 = app.stack.shift();
+          let result = math.e(op1);
+        } else {
+          // take the sin of the buffer
+          let op1 = app.buffer;
+          let result = math.exp(op1);
+          app.buffer = result;
+        }
+      })
+    break;
+    case 'ln-button':
+      button.addEventListener('click', () => {
+        console.log('ln button clicked');
+        let op1, result;
+        // take sin of buffer if there is something there
+        if(app.buffer === '') {
+          // take sin of stack[0]
+          let op1 = app.stack.shift();
+          let result = math.ln(op1);
+        } else {
+          // take the sin of the buffer
+          let op1 = app.buffer;
+          let result = math.log(op1);
+          app.buffer = result;
+        }
+      })
+    break;
+    case 'pi-button':
+      button.addEventListener('click', () => {
+        console.log('pi button clicked');
+        app.buffer = math.pi;
+      })
+    break;
+
     default:
       button.addEventListener('click', () => {
         console.log('button not assigned a function');

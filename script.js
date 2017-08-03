@@ -155,7 +155,7 @@ buttons.forEach( (button) => {
     case 'equals-button':
       button.addEventListener('click', () => {
         console.log('equals clicked');
-        app.display = eval(app.display);
+        app.display = math.eval(app.display);
       });
     break;
     case 'add-button':

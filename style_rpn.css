@@ -1,0 +1,32 @@
+.row {
+  display: flex;
+}
+
+.button {
+  display: flex;
+  border-style: solid;
+  flex-direction: column;
+  border-width: 2px;
+  padding: 1px;
+  background-color: rgb(13,14,14);
+  border-radius: 5px;
+}
+
+.primary {
+  background: linear-gradient(rgb(247,240,247), rgb(13,14,14)); /* Standard syntax */
+  flex-basis: 60%;
+  padding: 10px;
+  text-align: center;
+  color: rgb(247, 240, 247);
+  border-bottom-color: rgb(247,240,247);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+
+.secondary {
+  background: linear-gradient(rgb(13,14,14),rgb(69, 23, 69)); /* Standard syntax */
+  flex-basis: 40%;
+  padding: 10px;
+  text-align: center;
+  color: rgb(68,162,255);
+}

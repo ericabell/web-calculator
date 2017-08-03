@@ -62,6 +62,19 @@ let calculatorRows = `
   <div class='row'>
     <button type="button" id='pi-button' class='btn btn-default primary'>$\\pi$</button>
   </div>
+
+  <div class='row'>
+    <div class='button'>
+      <div class='primary'>
+        $\\sin x$
+      </div>
+      <div class='secondary'>
+        $\\arcsin x$
+      </div>
+    </div
+  </div>
+
+
 `
 
 let stackDisplay = `

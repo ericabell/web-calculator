@@ -127,7 +127,24 @@ buttons.forEach( (button) => {
     case 'divide-button':
       button.addEventListener('click', () => {
         console.log('divide clicked');
-
+        let op1, op2, result;
+        // TODO: make sure we have args to add!
+        // if the buffer is empty, add stack[0] = stack[1] / stack[0]
+        if(app.buffer === '') {
+          op1 = app.stack.shift();
+          op2 = app.stack.shift();
+          app.stack.unshift(op2/op1);
+        }
+        else {
+          // we want to divide the contents of the stack[0] by buffer
+          op1 = app.stack.shift();
+          op2 = Number(app.buffer);
+          result = op1 / op2;
+          // leave the result of the calculation on stack[0]
+          app.stack.unshift(result);
+        }
+        // and the buffer is empty
+        app.buffer = '';
       });
     break;
 

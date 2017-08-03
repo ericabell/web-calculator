@@ -103,7 +103,7 @@ buttons.forEach( (button) => {
     case 'clear-button':
       button.addEventListener('click', () => {
         console.log('clear clicked');
-        app.display = '';
+        app.buffer = '';
       });
     break;
     case 'seven-button':
@@ -127,7 +127,7 @@ buttons.forEach( (button) => {
     case 'divide-button':
       button.addEventListener('click', () => {
         console.log('divide clicked');
-        app.display += '/';
+
       });
     break;
 
@@ -152,7 +152,7 @@ buttons.forEach( (button) => {
     case 'multiply-button':
       button.addEventListener('click', () => {
         console.log('multiply clicked');
-        app.display += '*';
+
       });
     break;
 
@@ -177,7 +177,24 @@ buttons.forEach( (button) => {
     case 'subtract-button':
       button.addEventListener('click', () => {
         console.log('subtract clicked');
-        app.display += '-';
+        let op1, op2, result;
+        // TODO: make sure we have args to add!
+        // if the buffer is empty, add stack[0] = stack[1] - stack[0]
+        if(app.buffer === '') {
+          op1 = app.stack.shift();
+          op2 = app.stack.shift();
+          app.stack.unshift(op2-op1);
+        }
+        else {
+          // we want to subtract the contents of the buffer from stack[0]
+          op1 = app.stack.shift();
+          op2 = Number(app.buffer);
+          result = op1 - op2;
+          // leave the result of the calculation on stack[0]
+          app.stack.unshift(result);
+        }
+        // and the buffer is empty
+        app.buffer = '';
       });
     break;
 
@@ -196,7 +213,24 @@ buttons.forEach( (button) => {
     case 'add-button':
       button.addEventListener('click', () => {
         console.log('add clicked');
-        app.display += '+';
+        let op1, op2, result;
+        // TODO: make sure we have args to add!
+        // if the buffer is empty, add stack[0] = stack[0] + stack[1]
+        if(app.buffer === '') {
+          op1 = app.stack.shift();
+          op2 = app.stack.shift();
+          app.stack.unshift(op1+op2);
+        }
+        else {
+          // we want to add the contents of the buffer to stack[0]
+          op1 = app.stack.shift();
+          op2 = Number(app.buffer);
+          result = op1 + op2;
+          // leave the result of the calculation on stack[0]
+          app.stack.unshift(result);
+        }
+        // and the buffer is empty
+        app.buffer = '';
       });
     break;
     case 'open-parens-button':

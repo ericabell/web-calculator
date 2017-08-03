@@ -1,3 +1,9 @@
+// configure Math.js to use fractions
+// math.config({
+//   number: 'Fraction'
+// });
+
+
 // grab the container for our calculator
 let calculatorDiv = document.getElementById('calculator');
 

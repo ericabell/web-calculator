@@ -5,14 +5,16 @@ let headingText = `<h1>Basic Calculator</h1>`
 
 calculatorDiv.innerHTML = `
   ${headingText}
-  <div class='buttonGridLeft'>
-    ${buttonGridLeft}
-  </div>
-  <div class='buttonGridCenter'>
-    ${buttonGridCenter}
-  </div>
-  <div class='buttonGridRight'>
-    ${buttonGridRight}
+  <div class='keys'>
+    <div class='buttonGridLeft'>
+      ${buttonGridLeft}
+    </div>
+    <div class='buttonGridCenter'>
+      ${buttonGridCenter}
+    </div>
+    <div class='buttonGridRight'>
+      ${buttonGridRight}
+    </div>
   </div>
 `
 

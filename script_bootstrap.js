@@ -1,23 +1,23 @@
 // grab the container for our calculator
 let calculatorDiv = document.getElementById('calculator');
 
-let headingText = `<h1>Basic Calculator</h1>`
-
+// add the display and calculator buttons
 calculatorDiv.innerHTML = `
-  ${headingText}
-  <div class='keys'>
+  <div id='displayRow'>
+    ${display}
+  </div>
+  <div id='keys'>
     <div class='buttonGridLeft'>
       ${buttonGridLeft}
     </div>
-    <div class='buttonGridCenter'>
+    <div id='buttonGridCenter'>
       ${buttonGridCenter}
     </div>
-    <div class='buttonGridRight'>
+    <div id='buttonGridRight'>
       ${buttonGridRight}
     </div>
   </div>
 `
-
 
 // set up our Vue and link to display
 var app = new Vue({

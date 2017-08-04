@@ -258,9 +258,253 @@ let buttonGridLeft = `
 `
 
 let buttonGridCenter = `
+  <div class='row' id='row-1'>
 
+    <div class='button' id='chs-button'>
+      <div class='shifted-alt-function' id='matrix'>
+        MATRIX
+      </div>
+      <div class='primary-function' id='chs'>
+        CHS
+      </div>
+      <div class='alt-function' id='abs'>
+        ABS
+      </div>
+    </div>
+
+    <div class='button' id='eex-button'>
+      <div class='shifted-alt-function' id='result'>
+        RESULT
+      </div>
+      <div class='primary-function' id='eex'>
+        EEX
+      </div>
+      <div class='alt-function' id='pi'>
+        $\\pi$
+      </div>
+    </div>
+
+    <div class='button' id='enter-button'>
+      <div class='shifted-alt-function' id='ran-number'>
+        RAN N
+      </div>
+      <div class='primary-function' id='enter'>
+        ENTER
+      </div>
+      <div class='alt-function' id='lst-x'>
+        LST$x$
+      </div>
+    </div>
+
+  </div>
 `
 
 let buttonGridRight = `
+  <div class='row' id='row-1'>
 
+    <div class='button' id='seven-button'>
+      <div class='shifted-alt-function' id='fix'>
+        FIX
+      </div>
+      <div class='primary-function' id='seven'>
+        7
+      </div>
+      <div class='alt-function' id='degrees'>
+        DEG
+      </div>
+    </div>
+
+    <div class='button' id='eight-button'>
+      <div class='shifted-alt-function' id='sci'>
+        SCI
+      </div>
+      <div class='primary-function' id='eight'>
+        8
+      </div>
+      <div class='alt-function' id='radians'>
+        RAD
+      </div>
+    </div>
+
+    <div class='button' id='nine-button'>
+      <div class='shifted-alt-function' id='eng'>
+        ENG
+      </div>
+      <div class='primary-function' id='nine'>
+        9
+      </div>
+      <div class='alt-function' id='gradians'>
+        GRD
+      </div>
+    </div>
+
+    <div class='button' id='divide-button'>
+      <div class='shifted-alt-function' id='solve'>
+        SOLVE
+      </div>
+      <div class='primary-function' id='divide'>
+        DIVIDE
+      </div>
+      <div class='alt-function' id='x-leq-y'>
+        $x\\leq y$
+      </div>
+    </div>
+
+  </div>
+
+  <div class='row' id='row-2'>
+
+    <div class='button' id='four-button'>
+      <div class='shifted-alt-function' id=''>
+        X?
+      </div>
+      <div class='primary-function' id='four'>
+        4
+      </div>
+      <div class='alt-function' id='sf'>
+        SF
+      </div>
+    </div>
+
+    <div class='button' id='five-button'>
+      <div class='shifted-alt-function' id='dse'>
+        DSE
+      </div>
+      <div class='primary-function' id='five'>
+        5
+      </div>
+      <div class='alt-function' id='cf'>
+        CF
+      </div>
+    </div>
+
+    <div class='button' id='six-button'>
+      <div class='shifted-alt-function' id='isg'>
+        ISG
+      </div>
+      <div class='primary-function' id='six'>
+        6
+      </div>
+      <div class='alt-function' id='f-question'>
+        F?
+      </div>
+    </div>
+
+    <div class='button' id='multiply-button'>
+      <div class='shifted-alt-function' id='num-integral'>
+        $\\int_y^x$
+      </div>
+      <div class='primary-function' id='multiply'>
+        X
+      </div>
+      <div class='alt-function' id='x-equals-zero'>
+        $x=0$
+      </div>
+    </div>
+
+  </div>
+
+  <div class='row' id='row-3'>
+
+    <div class='button' id='one-button'>
+      <div class='shifted-alt-function' id=''>
+        ? R
+      </div>
+      <div class='primary-function' id='one'>
+        1
+      </div>
+      <div class='alt-function' id=''>
+        ? P
+      </div>
+    </div>
+
+    <div class='button' id='two-button'>
+      <div class='shifted-alt-function' id='to-hms'>
+        ? H.MS
+      </div>
+      <div class='primary-function' id='two'>
+        2
+      </div>
+      <div class='alt-function' id=''>
+        ? H
+      </div>
+    </div>
+
+    <div class='button' id='three-button'>
+      <div class='shifted-alt-function' id='to-radians'>
+        ? RAD
+      </div>
+      <div class='primary-function' id='three'>
+        3
+      </div>
+      <div class='alt-function' id='to-degrees'>
+        ? DEG
+      </div>
+    </div>
+
+    <div class='button' id='subtract-button'>
+      <div class='shifted-alt-function' id='swap-re-img'>
+        Re ? Im
+      </div>
+      <div class='primary-function' id='subtract'>
+        -
+      </div>
+      <div class='alt-function' id='test'>
+        TEST
+      </div>
+    </div>
+
+  </div>
+
+  <div class='row' id='row-4'>
+
+    <div class='button' id='zero-button'>
+      <div class='shifted-alt-function' id='factorial'>
+        $x!$
+      </div>
+      <div class='primary-function' id='zero'>
+        0
+      </div>
+      <div class='alt-function' id='mean'>
+        x-bar
+      </div>
+    </div>
+
+    <div class='button' id='decimal-button'>
+      <div class='shifted-alt-function' id=''>
+        y-hat
+      </div>
+      <div class='primary-function' id='decimal'>
+        .
+      </div>
+      <div class='alt-function' id='s'>
+        S
+      </div>
+    </div>
+
+    <div class='button' id='sum-plus-button'>
+      <div class='shifted-alt-function' id='lr'>
+        L.R.
+      </div>
+      <div class='primary-function' id='sum-plus'>
+        $\\sum +$
+      </div>
+      <div class='alt-function' id='sum-minus'>
+        $\\sum -$
+      </div>
+    </div>
+
+    <div class='button' id='add-button'>
+      <div class='shifted-alt-function' id='permutation'>
+        P$y.x$
+      </div>
+      <div class='primary-function' id='add'>
+        +
+      </div>
+      <div class='alt-function' id='combination'>
+        C$y.x$
+      </div>
+    </div>
+
+  </div>
 `

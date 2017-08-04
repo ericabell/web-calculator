@@ -125,15 +125,133 @@ let buttonGridLeft = `
       </div>
     </div>
 
-
-
   </div>
 
   <div class='row' id='row-3'>
 
+    <div class='button' id='rs-button'>
+      <div class='shifted-alt-function' id='pse'>
+        PSE
+      </div>
+      <div class='primary-function' id='rs'>
+        R/S
+      </div>
+      <div class='alt-function' id='pr'>
+        P/R
+      </div>
+    </div>
+
+    <div class='button' id='gsb-button'>
+      <div class='shifted-alt-function' id='sigma'>
+        $\\sum$
+      </div>
+      <div class='primary-function' id='gsb'>
+        GSB
+      </div>
+      <div class='alt-function' id='rtn'>
+        RTN
+      </div>
+    </div>
+
+    <div class='button' id='r-drop-button'>
+      <div class='shifted-alt-function' id='prgm'>
+        PRGM
+      </div>
+      <div class='primary-function' id='r-drop'>
+        RD
+      </div>
+      <div class='alt-function' id='r-up'>
+        RU
+      </div>
+    </div>
+
+    <div class='button' id='swap-x-y-button'>
+      <div class='shifted-alt-function' id='reg'>
+        REG
+      </div>
+      <div class='primary-function' id='swap-x-y'>
+        XAY
+      </div>
+      <div class='alt-function' id='rnd'>
+        RND
+      </div>
+    </div>
+
+    <div class='button' id='back-arrow-button'>
+      <div class='shifted-alt-function' id='prefix'>
+        PREFIX
+      </div>
+      <div class='primary-function' id='back-arrow'>
+        BACK
+      </div>
+      <div class='alt-function' id='cl-x'>
+        CL$x$
+      </div>
+    </div>
+
   </div>
 
   <div class='row' id='row-4'>
+
+    <div class='button' id='on-button'>
+      <div class='shifted-alt-function' id=''>
+
+      </div>
+      <div class='primary-function' id='on'>
+        ON
+      </div>
+      <div class='alt-function' id=''>
+
+      </div>
+    </div>
+
+    <div class='button' id='shift-alt-button'>
+      <div class='shifted-alt-function' id=''>
+
+      </div>
+      <div class='primary-function' id='shift-alt'>
+        f
+      </div>
+      <div class='alt-function' id=''>
+
+      </div>
+    </div>
+
+    <div class='button' id='alt-button'>
+      <div class='shifted-alt-function' id=''>
+
+      </div>
+      <div class='primary-function' id='alt'>
+        g
+      </div>
+      <div class='alt-function' id=''>
+
+      </div>
+    </div>
+
+    <div class='button' id='sto-button'>
+      <div class='shifted-alt-function' id='frac'>
+        FRAC
+      </div>
+      <div class='primary-function' id='sto'>
+        STO
+      </div>
+      <div class='alt-function' id='int'>
+        INT
+      </div>
+    </div>
+
+    <div class='button' id='rcl-button'>
+      <div class='shifted-alt-function' id='user'>
+        USER
+      </div>
+      <div class='primary-function' id='rcl'>
+        RCL
+      </div>
+      <div class='alt-function' id='mem'>
+        MEM
+      </div>
+    </div>
 
   </div>
 

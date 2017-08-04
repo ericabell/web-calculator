@@ -25,6 +25,7 @@ var app = new Vue({
   data: {
     commandMode: 'primary', /* primary, alt, shift-alt */
     display: '', /* display is stack[0] */
-    stack: []
+    stack: [],
+    stackTransferComplete: false /* gets set by Enter key */
   }
 });

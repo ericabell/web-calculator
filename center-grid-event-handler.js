@@ -18,7 +18,10 @@ function handleGridCenterCommand(command) {
 
   switch(command) {
     case 'enter-button':
-      app.display += '1';
+      console.log('Enter button pressed');
+      // transfer display to stack
+      app.stack.push( Number(app.display) );
+      app.stackTransferComplete = true;
     break;
 
   }

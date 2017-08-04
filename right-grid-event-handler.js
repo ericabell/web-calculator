@@ -16,6 +16,13 @@ rightGrid.addEventListener('click', (event) => {
 function handleGridRightCommand(command) {
   console.log(`handleGridRightCommand: ${command}`);
 
+  // if a stack transfer just happened, we will need to clear
+  // the display first, then process the entry
+  if( app.stackTransferComplete === true ) {
+    app.display = ''; // clean the display
+    app.stackTransferComplete = false; // reset the flag
+  }
+
   switch(command) {
     case 'one-button':
       app.display += '1';
@@ -43,6 +50,26 @@ function handleGridRightCommand(command) {
     break;
     case 'nine-button':
       app.display += '9';
+    break;
+    case 'add-button':
+      // add x (display) to register y
+      app.display = Number(app.stack[0]) + Number(app.display);
+      app.stack.pop();
+    break;
+    case 'subtract-button':
+      // add x (display) to register y
+      app.display = Number(app.stack[0]) - Number(app.display);
+      app.stack.pop();
+    break;
+    case 'multiply-button':
+      // add x (display) to register y
+      app.display = Number(app.stack[0]) * Number(app.display);
+      app.stack.pop();
+    break;
+    case 'divide-button':
+      // add x (display) to register y
+      app.display = Number(app.stack[0]) / Number(app.display);
+      app.stack.pop();
     break;
 
   }

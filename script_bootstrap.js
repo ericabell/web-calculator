@@ -3,101 +3,19 @@ let calculatorDiv = document.getElementById('calculator');
 
 let headingText = `<h1>Basic Calculator</h1>`
 
-let calculatorRows = `
-  <div class='row'>
-    <button type="button" id='clear-button' class="btn btn-default"> C </button>
-    <button type="button" id='enter-button' class="btn btn-default"> ENTER </button>
-    <button type="button" id='drop-button' class="btn btn-default"> DROP </button>
-    <button type="button" id='swap-button' class="btn btn-default"> SWAP </button>
-    <button type="button" id='clearstack-button' class="btn btn-default"> CLEAR STACK </button>
+calculatorDiv.innerHTML = `
+  ${headingText}
+  <div class='buttonGridLeft'>
+    ${buttonGridLeft}
   </div>
-
-  <div class='row'>
-    <button type="button" id='square-button' class="btn btn-default"> $ x^2 $ </button>
-    <button type="button" id='second-button' class="btn btn-default"> 2nd </button>
-
+  <div class='buttonGridCenter'>
+    ${buttonGridCenter}
   </div>
-
-  <div class='row'>
-    <button type="button" id='seven-button' class="btn btn-default">7</button>
-    <button type="button" id='eight-button' class='btn btn-default'>8</button>
-    <button type="button" id='nine-button' class='btn btn-default'>9</button>
-    <button type="button" id='divide-button' class='btn btn-default'>/</button>
+  <div class='buttonGridRight'>
+    ${buttonGridRight}
   </div>
-
-  <div class='row'>
-    <button type="button" id='four-button' class='btn btn-default'>4</button>
-    <button type="button" id='five-button' class='btn btn-default'>5</button>
-    <button type="button" id='six-button' class='btn btn-default'>6</button>
-    <button type="button" id='multiply-button' class='btn btn-default'>*</button>
-  </div>
-
-  <div class='row'>
-    <button type="button" id='one-button' class='btn btn-default'>1</button>
-    <button type="button" id='two-button' class='btn btn-default'>2</button>
-    <button type="button" id='three-button' class='btn btn-default'>3</button>
-    <button type="button" id='subtract-button' class='btn btn-default'>-</button>
-  </div>
-
-  <div class='row'>
-    <button type="button" id='zero-button' class='btn btn-default'>0</button>
-    <button type="button" id='decimal-button' class='btn btn-default'>.</button>
-    <button type="button" id='add-button' class='btn btn-default'>+</button>
-  </div>
-
-  <div class='row'>
-    <button type="button" id='sin-button' class='btn btn-default primary'>sin</button>
-    <button type="button" id='asin-button' class='btn btn-default secondary' disabled>arcsin</button>
-    <button type="button" id='cos-button' class='btn btn-default primary'>cos</button>
-    <button type="button" id='acos-button' class='btn btn-default secondary' disabled>arccos</button>
-    <button type="button" id='tan-button' class='btn btn-default primary'>tan</button>
-    <button type="button" id='atan-button' class='btn btn-default secondary' disabled>arctan</button>
-  </div>
-
-  <div class='row'>
-    <button type="button" id='e-button' class='btn btn-default primary'>$e^x$</button>
-    <button type="button" id='ln-button' class='btn btn-default secondary' disabled>$\ln x$</button>
-  </div>
-
-  <div class='row'>
-    <button type="button" id='pi-button' class='btn btn-default primary'>$\\pi$</button>
-  </div>
-
-  <div class='row'>
-    <div class='button'>
-      <div class='primary'>
-        $\\sin x$
-      </div>
-      <div class='secondary'>
-        $\\arcsin x$
-      </div>
-    </div
-  </div>
-
-
 `
 
-let stackDisplay = `
-  <table class="table">
-    <tr>
-      <td id="stack-3">{{stack[3]}}</td>
-    </tr>
-    <tr>
-      <td id="stack-2">{{stack[2]}}</td>
-    </tr>
-    <tr>
-      <td id="stack-1">{{stack[1]}}</td>
-    </tr>
-    <tr>
-      <td id="stack-0">{{stack[0]}}</td>
-    </tr>
-    <tr>
-      <td id="stack-0">{{buffer}}</td>
-    </tr>
-  </table>
-`
-
-calculatorDiv.innerHTML = calculatorRows + stackDisplay;
 
 // set up our Vue and link to display
 var app = new Vue({

@@ -56,6 +56,18 @@
   border-radius: 5px;
 }
 
+.shifted-alt-function {
+ color: rgb(227,128,0);
+}
+
+.primary-function {
+  color: rgb(255,255,255);
+}
+
+.alt-function {
+  color: rgb(93,167,206);
+}
+
 .primary {
   background: linear-gradient(rgb(187, 185, 187), rgb(13,14,14)); /* Standard syntax */
   flex-basis: 60%;

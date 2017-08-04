@@ -23,8 +23,8 @@ calculatorDiv.innerHTML = `
 var app = new Vue({
   el: '#calculator',
   data: {
-    display: '',
     commandMode: 'primary', /* primary, alt, shift-alt */
+    display: '', /* display is stack[0] */
     stack: []
   }
 });

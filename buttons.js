@@ -182,7 +182,7 @@ let buttonGridLeft = `
         PREFIX
       </div>
       <div class='primary-function' id='back-arrow'>
-        BACK
+        $\\leftarrow$
       </div>
       <div class='alt-function' id='cl-x'>
         CL$x$
@@ -343,7 +343,7 @@ let buttonGridRight = `
         SOLVE
       </div>
       <div class='primary-function' id='divide'>
-        DIVIDE
+        /
       </div>
       <div class='alt-function' id='x-leq-y'>
         $x\\leq y$

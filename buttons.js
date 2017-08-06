@@ -414,7 +414,7 @@ let buttonGridRight = `
         1
       </div>
       <div class='alt-function' id=''>
-        ? P
+        $\\rightarrow P$
       </div>
     </div>
 
@@ -426,7 +426,7 @@ let buttonGridRight = `
         2
       </div>
       <div class='alt-function' id=''>
-        ? H
+        $\\rightarrow H$
       </div>
     </div>
 
@@ -438,7 +438,7 @@ let buttonGridRight = `
         3
       </div>
       <div class='alt-function' id='to-degrees'>
-        ? DEG
+        $\\rightarrow DEG$
       </div>
     </div>
 

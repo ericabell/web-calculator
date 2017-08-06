@@ -24,8 +24,14 @@ var app = new Vue({
   el: '#calculator',
   data: {
     commandMode: 'primary', /* primary, alt, shift-alt */
-    display: '', /* display is stack[0] */
+    display: '', /* display is stack[0], see note below */
     stack: [],
     stackTransferComplete: false /* gets set by Enter key */
   }
 });
+
+// Note on using the display property instead of just referencing stack[0]
+// According to the Vue.js website, there are limitations of JS that do
+// not allow Vue to recognize a change with stack[0] += '1'
+// I tried the solution they suggested, and it didn't work out, so I'm
+// sticking with my display variable to mirror the contents of stack[0]

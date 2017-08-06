@@ -170,7 +170,7 @@ let buttonGridLeft = `
         REG
       </div>
       <div class='primary-function' id='swap-x-y'>
-        XAY
+        X$\\leftrightarrow$Y
       </div>
       <div class='alt-function' id='rnd'>
         RND

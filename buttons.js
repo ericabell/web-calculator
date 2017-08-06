@@ -158,10 +158,10 @@ let buttonGridLeft = `
         PRGM
       </div>
       <div class='primary-function' id='r-drop'>
-        RD
+        R$\\downarrow$
       </div>
       <div class='alt-function' id='r-up'>
-        RU
+        R$\\uparrow$
       </div>
     </div>
 

@@ -5,6 +5,8 @@ basic entry and four operations including
 addition, subtraction, multiplication, and
 division.
 
+<img src="calculator.png">
+
 Design requirements:
 - Display should truncate after 12 digits.
 - Calculations are performed using math.js

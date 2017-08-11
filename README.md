@@ -8,6 +8,6 @@ division.
 <img src="calculator.png">
 
 Design requirements:
-- Display should truncate after 12 digits.
+- Display should truncate after 15 digits.
 - Calculations are performed using math.js
 - Vue.js is used for binding the display

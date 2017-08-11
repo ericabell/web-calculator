@@ -55,10 +55,10 @@ var app = new Vue({
   watch: {
     display: function(value) {
       // we need to make sure the display doesn't get too big...
-      if(value.length > 12) {
+      if(value.length > 15) {
         // remove the last character added.
         console.log('ignoring');
-        this.display = this.display.slice(0,12);
+        this.display = this.display.slice(0,15);
       }
     }
   }
